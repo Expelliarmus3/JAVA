@@ -1,7 +1,13 @@
 package test;
 
 public class Methods {
-    //Varargs
+
+    public int rec_add(int n){
+        if(n==1)
+            return 1;
+        else
+            return n+rec_add(n-1);
+    }
     public void product(int n){ //non-static method needs to create an object and then call it
         for(int i=1;i<=10;i++){
             System.out.format("%d x %d= %d\n",n,i,(n*i));
@@ -29,6 +35,7 @@ public class Methods {
             System.out.println();
         }
     }
+    //Varargs
     public static int sum(int x,int...arr){ //making it mandatory to input one argument
         int result=x;
         for(int a:arr){
@@ -41,7 +48,10 @@ public class Methods {
 //        Methods m = new Methods();//the object needed to be created for a non-static method
 //        System.out.println("The table is");
 //        m.product(5);
-        pattern(5);
-        pattern2(5);
+        //pattern(5);
+        //pattern2(5);
+        Methods a= new Methods();
+        int add= a.rec_add(5);
+        System.out.println("Sum of 5 natural numbers is "+add);
     }
 }
