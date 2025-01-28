@@ -1,7 +1,22 @@
 package test;
 
 public class Methods {
-
+    public static int ave(int...arr){
+        int sum=0;
+        for(int a:arr){
+            sum+=a;
+        }
+        return sum;
+    }
+    public static int fibo(int n){
+        if(n==0)
+            return 0;
+        else if (n==1) {
+            return 1;
+        }
+        else
+            return fibo(n-1)+fibo(n-2);
+    }
     public int rec_add(int n){
         if(n==1)
             return 1;
@@ -52,6 +67,9 @@ public class Methods {
         //pattern2(5);
         Methods a= new Methods();
         int add= a.rec_add(5);
-        System.out.println("Sum of 5 natural numbers is "+add);
+       // System.out.println("Sum of 5 natural numbers is "+add);
+        //System.out.format("The term of the series is %d",fibo(5));
+        System.out.format("%d",ave(1,2,3,4,5));
     }
+
 }
