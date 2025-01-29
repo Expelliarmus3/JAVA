@@ -12,17 +12,27 @@ public class TommyVecetti {
     }
 }
 class Circle{
-    int radius;
+    private double area;
+    private double perimeter;
+    private int radius;
+    public Circle(){
+       this.radius=0;
+    }
+    public Circle(int radius){
+       this.radius=radius;
+    }
     public void set_radius(int r){
-        radius=r;
+        this.radius=r;
     }
     public void get_radius(){
-        System.out.println(radius);
+        System.out.println(this.radius);
     }
     public double get_Area(){
-        return Math.PI*radius*radius;
+        this.area= Math.PI*radius*radius;
+        return area;
     }
     public double get_perimeter(){
-        return 2*Math.PI*radius;
+        this.perimeter= 2*Math.PI*radius;
+        return perimeter;
     }
 }

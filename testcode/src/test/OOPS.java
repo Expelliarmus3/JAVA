@@ -55,8 +55,8 @@ public class OOPS {
         p.run();
         p.fire();
         p.hit();
-        Circle c = new Circle();
-        c.set_radius(2);
+        Circle c = new Circle(2);
+        c.set_radius(1);
         System.out.println("Area"+c.get_Area());
         System.out.println("Perimeter"+c.get_perimeter());
     }
