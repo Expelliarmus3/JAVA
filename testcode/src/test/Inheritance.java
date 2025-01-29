@@ -14,7 +14,7 @@ class Base{
         System.out.println("I am a constructor");
     }
 }
-class Derived extends Base{
+class Derived extends Root {
     public int y;
 
     public int getY() {
