@@ -11,6 +11,7 @@ class Root1 {
 class myDerived extends Root1 {
     public myDerived() {
         System.out.println("I am Derived");
+
     }
     public myDerived(int x,int y){
 
