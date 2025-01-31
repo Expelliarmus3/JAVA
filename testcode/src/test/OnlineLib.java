@@ -4,56 +4,52 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class OnlineLib {
-    String[] availableBooks = new String[10];
-    int n= availableBooks.length;
-    public void addBooks(int n){
-        for (int i = 0; i <n ; i++) {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter books to enter: ");
-            availableBooks[i]=input.next();
-        }
+    int no_of_books;
+    String[] availableBooks;
+    OnlineLib(){
+        this.no_of_books=0;
+        this.availableBooks= new String[100];
+    }
+    public void addBooks(String book){
+        availableBooks[no_of_books]= book;
+        no_of_books++;
+        System.out.println(book+" has been added!");
     }
 
     public void showAvailableBooks(){
-        for(String book : availableBooks){
-            System.out.print(book+"\t");
+        for(String book : this.availableBooks){
+            if(book==null)
+                continue;
+            System.out.println("* "+book);
         }
-        System.out.println();
     }
 
-    public void issueBook(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter book to issue: ");
-        String book= input.next();
-        for (int i = 0; i <n ; i++) {
-            if(Objects.equals(availableBooks[i], book)){
-                System.out.println("Issue success...");
+    public void issueBook(String book){
+        for(int i =0;i<this.availableBooks.length;i++){
+            if(availableBooks[i].equals(book)) {
+                System.out.println("The book has been issued");
+                this.availableBooks[i]=null;
+                return;
             }
         }
-        for (int i = 0; i <n ; i++) {
-            if(Objects.equals(availableBooks[i], book)){
-                availableBooks[i]=availableBooks[i+1];
-            }
-            availableBooks[i+1]=availableBooks[i+2];
-            n--;
-        }
-        //System.out.println("Not available");
+        System.out.println("The book is unavailable...");
     }
-    public void returnBook(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter book to issue: ");
-        String book= input.next();
-        n++;
-        availableBooks[n]=book;
 
+    public void returnBook(String book){
+        addBooks(book);
     }
 
     public static void main(String[] args) {
         OnlineLib lib = new OnlineLib();
         //System.out.println("Enter number of books to add");
-        lib.addBooks(10);
+        lib.addBooks("Harry Potter");
+        lib.addBooks("DSA");
+        lib.addBooks("JAVA");
+        lib.addBooks("C");
         lib.showAvailableBooks();
-        lib.issueBook();
+        lib.issueBook("DSA");
+        lib.showAvailableBooks();
+        lib.returnBook("DSA");
         lib.showAvailableBooks();
     }
 }
